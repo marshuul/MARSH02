@@ -2,11 +2,53 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- favicon -->
+    <link
+      id="favicon"
+      rel="icon"
+      type="image/x-icon"
+      href="/assets/images/favicon-dark.ico"
+    />
+    <script>
+      function setFavicon() {
+        const favicon = document.getElementById("favicon");
+        const isDarkMode = window.matchMedia(
+          "(prefers-color-scheme: dark)",
+        ).matches;
+        favicon.href = isDarkMode
+          ? "/assets/images/favicon-light.ico"
+          : "/assets/images/favicon-dark.ico";
+      }
+
+      setFavicon();
+
+      window
+        .matchMedia("(prefers-color-scheme: dark)")
+        .addEventListener("change", setFavicon);
+    </script>
+    <!-- title -->
     <title>MARSH02</title>
     <!-- tailwind -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- preload -->
+    <!-- fonts -->
+    <link
+      rel="preload"
+      href="/assets/fonts/primary/reddit/RedditSans-VariableFont_wght.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="preload"
+      href="/assets/fonts/Cookie-Regular.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin="anonymous"
+    />
+    <!-- images -->
+    <link rel="preload" as="image" href="/assets/images/logo-light.png" />
   </head>
   <body>
     <div id="root"></div>
